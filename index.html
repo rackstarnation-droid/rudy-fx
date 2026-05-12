@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CryptoVest Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{background:#0a0f1c;color:white;overflow-x:hidden;}
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 8%;background:#0f172a;position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .logo{font-size:28px;font-weight:700;color:#00ffcc;}
+    nav a{margin-left:25px;text-decoration:none;color:white;transition:.3s;}
+    nav a:hover{color:#00ffcc;}
+    .hero{min-height:90vh;display:flex;align-items:center;justify-content:space-between;padding:0 8%;gap:50px;}
+    .hero-text{max-width:600px;}
+    .hero-text h1{font-size:60px;line-height:1.1;margin-bottom:20px;}
+    .hero-text h1 span{color:#00ffcc;}
+    .hero-text p{color:#cbd5e1;margin-bottom:30px;line-height:1.8;}
+    .btn{display:inline-block;padding:15px 35px;background:#00ffcc;color:#000;border-radius:10px;font-weight:600;text-decoration:none;transition:.3s;cursor:pointer;border:none;}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,255,204,.3);}
+    .hero-card{width:420px;background:#111827;border-radius:20px;padding:30px;box-shadow:0 0 40px rgba(0,255,204,.1);}
+    .balance{font-size:40px;margin:15px 0;color:#00ffcc;}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:25px;}
+    .stat{background:#1e293b;padding:20px;border-radius:15px;}
+    .stat h3{font-size:14px;color:#94a3b8;}
+    .stat p{margin-top:10px;font-size:20px;font-weight:600;}
+    .section{padding:100px 8%;}
+    .section-title{text-align:center;margin-bottom:60px;}
+    .section-title h2{font-size:42px;margin-bottom:15px;}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+    .card{background:#111827;padding:35px;border-radius:20px;transition:.3s;border:1px solid rgba(255,255,255,.05);}
+    .card:hover{transform:translateY(-8px);border-color:#00ffcc;}
+    .card h3{margin-bottom:15px;color:#00ffcc;}
+    .plan-price{font-size:42px;margin:20px 0;}
+    .chart{width:100%;height:500px;margin-top:50px;border-radius:20px;overflow:hidden;}
+    footer{padding:40px 8%;text-align:center;background:#0f172a;margin-top:80px;color:#94a3b8;}
+    .login-box{margin-top:20px;}
+    .login-box input{width:100%;padding:14px;margin-bottom:15px;border:none;border-radius:10px;background:#1e293b;color:white;outline:none;}
+    .login-box button{width:100%;padding:14px;border:none;border-radius:10px;background:#00ffcc;font-weight:700;cursor:pointer;}
+    @media(max-width:950px){.hero{flex-direction:column;padding-top:50px;}.hero-text h1{font-size:42px;}.hero-card{width:100%;}}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">CryptoVest</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#login-section">Invest</a>
+        <a href="#login-section">Dashboard</a>
+        <a href="#login-section">Login</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Next Generation <span>Crypto Investing</span></h1>
+        <p>Invest in Bitcoin, Ethereum, Solana and more with our AI-powered crypto investment platform. Grow your portfolio securely.</p>
+        <a href="#login-section" class="btn">Start Investing</a>
+    </div>
+
+    <div class="hero-card" id="login-section">
+        <small>Total Portfolio</small>
+        <div class="balance">$128,540.22</div>
+        <div class="stats">
+            <div class="stat"><h3>BTC Profit</h3><p>+18.4%</p></div>
+            <div class="stat"><h3>Daily ROI</h3><p>2.5%</p></div>
+        </div>
+        <div class="login-box">
+            <input type="email" id="email" placeholder="Email Address">
+            <input type="password" id="pass" placeholder="Password">
+            <button onclick="handleLogin()">Login to Terminal</button>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-title">
+        <h2>Investment Plans</h2>
+    </div>
+    <div class="cards">
+        <div class="card"><h3>Starter</h3><div class="plan-price">$100</div><p>1.5% Daily</p></div>
+        <div class="card"><h3>Pro</h3><div class="plan-price">$1,000</div><p>3.2% Daily</p></div>
+        <div class="card"><h3>Whale</h3><div class="plan-price">$10,000</div><p>5.5% Daily</p></div>
+    </div>
+</section>
+
+<footer>© 2026 CryptoVest Pro</footer>
+
+<script>
+    function handleLogin() {
+        const email = document.getElementById('email').value;
+        const pass = document.getElementById('pass').value;
+        if(email && pass) {
+            sessionStorage.setItem('isLoggedIn', 'true');
+            window.location.href = 'dashboard.html';
+        } else {
+            alert('Please enter credentials to access the terminal.');
+        }
+    }
+</script>
+</body>
+</html>
